@@ -1,0 +1,28 @@
+﻿@{
+    @RenderPage("~/App_Validation/session.cshtml");
+    @RenderPage("~/App_Validation/redireccionar.cshtml");
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="~/App_Styles/contacto/contacto.css">
+    <link rel="stylesheet" type="text/css" href="~/App_Styles/reset.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+</head>
+<body>
+    <div class="menu_p">
+        <ul>
+            <li class="usuario">usuario: @Session["User"]</li>
+            <li class="rig"><a href="~/App_Views/exit/exit.cshtml">cerrar sesion</a></li>
+            <li class="rig"><a href="~/App_Views/index.cshtml">inicio</a></li>
+        </ul>
+    </div>        
+
+    <div class="container">
+
+
+    </div>
+</body>
+</html>

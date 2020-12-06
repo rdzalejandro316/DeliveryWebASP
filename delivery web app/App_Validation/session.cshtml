@@ -1,0 +1,31 @@
+﻿@using System.Data.SqlClient;
+
+@{
+    SqlConnection myConnection = new SqlConnection("Data Source=64.250.116.210,8333;Initial Catalog=Delivery;User ID=wilmer1104@yahoo.com;Password=Q1w2e3r4*/*");
+
+    try
+    {
+        myConnection.Open();
+
+        string Select = "SELECT * FROM Mae_Autorizados WHERE cod_autorizado='" + Session["User"] + "'";
+        SqlCommand cmd = new SqlCommand(Select, myConnection);
+        SqlDataReader reader = cmd.ExecuteReader();
+
+        if (reader.HasRows)
+        {
+
+            while (reader.Read())
+            {
+                Session["Id"] = reader.GetInt32(0);
+                Session["Password"] = reader.GetString(10);
+                Session["User"] = reader.GetString(1);
+                Session["Cod_destino"] = reader.GetString(3);
+            }
+        }
+    }
+    catch
+    {
+
+    }
+
+ }

@@ -1,0 +1,56 @@
+﻿@using System.Data.SqlClient;
+
+@{
+    //usuario=52478527     contraseña= 12345
+
+    SqlConnection myConnection = new SqlConnection("Data Source=64.250.116.210,8333;Initial Catalog=Delivery;User ID=wilmer1104@yahoo.com;Password=Q1w2e3r4*/*");
+
+    try
+    {
+        myConnection.Open();
+
+        string Select = "SELECT * FROM Mae_Autorizados WHERE cod_autorizado='" + Request["User"] + "' AND clave='" + Request["Password"] + "'";
+        SqlCommand cmd = new SqlCommand(Select, myConnection);
+        SqlDataReader reader = cmd.ExecuteReader();
+
+        if (reader.HasRows)
+        {
+
+            Session["User"] = @Request["User"];
+            
+            <script type="text/javascript">
+                function load() {
+                    window.location.assign("../App_Views/index.cshtml");
+                }
+                window.onload = load;
+            </script>
+            reader.Close();
+
+        }
+        else
+        {
+            <script type="text/javascript">
+                function load() {
+                    window.location.assign("../Default.cshtml");
+                }
+                window.onload = load;
+            </script>
+            reader.Close();
+        }
+
+    }
+    catch
+    {
+        <h1>fallo el ingreso</h1>
+        <script type="text/javascript">
+            function load() {
+                window.location.assign("../Default.cshtml")
+            }
+
+            window.onload = load;
+        </script>
+    }
+
+
+}
+

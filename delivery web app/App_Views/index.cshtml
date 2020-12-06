@@ -1,0 +1,53 @@
+﻿@{
+    @RenderPage("~/App_Validation/session.cshtml");
+    @RenderPage("~/App_Validation/redireccionar.cshtml");
+    @RenderPage("~/App_Validation/passwordEqualUser.cshtml");
+}
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>index</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="~/App_Styles/index/index.css">
+    <link rel="stylesheet" type="text/css" href="~/App_Styles/reset.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+</head>
+<body class="cuerpo">
+
+    <!--<h1>usuario: Session["User"] contraseña: Session["Password"]  id: Session["Id"] cod_detino: Session["Cod_destino"]</h1>-->
+
+    <div class="menu_p">
+
+        <ul>
+            <li class="usuario">usuario: @Session["User"]</li>
+            <li class="rig"><a href="~/App_Views/exit/exit.cshtml">cerrar sesion</a></li>
+            <li class="rig"><a href="~/App_Views/index.cshtml">inicio</a></li>
+        </ul>
+    </div>
+
+    <ul class="content">
+        <li class="menu">
+            <ul>
+                <li class="button"><a href="~/App_Views/reporte/reporte.cshtml">generar reporte<span class="icon"> </span></a></li>
+            </ul>
+        </li>
+        <li class="menu">
+            <ul>
+                <li class="button"><a href="~/App_Views/usuario/usuario.cshtml">cambiar contraseña<span class="icon stat"> </span></a></li>
+            </ul>
+        </li>
+        <li class="menu">
+            <ul>
+                <li class="button"><a href="~/App_Views/contacto/contacto.cshtml">contacto<span class="icon msg"> </span></a></li>
+            </ul>
+        </li>
+        <li class="menu info">
+            <ul>
+                <li class="button"><a href="~/App_Views/exit/exit.cshtml">salir<span class="icon signout"> </span> </a></li>
+            </ul>
+        </li>
+    </ul>
+
+</body>
+</html>

@@ -1,0 +1,12 @@
+﻿@{
+
+    if (Session["User"].ToString() == "" && Session["Password"].ToString() == "" && Session["Id"].ToString() == "")
+    {
+
+        //@RenderPage("~/App_Validation/redireccionar.cshtml");
+        Response.Redirect("~/Default.cshtml");
+
+    }
+
+}
+

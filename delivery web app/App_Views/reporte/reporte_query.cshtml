@@ -1,0 +1,73 @@
+﻿@using System.Data.SqlClient;
+
+@{
+    SqlConnection myConnection = new SqlConnection("Data Source=64.250.116.210,8333;Initial Catalog=Delivery;User ID=wilmer1104@yahoo.com;Password=Q1w2e3r4*/*");
+
+    try
+    {
+        myConnection.Open();
+
+        string Select = "select * from Doc_Ingreso where cod_destin=" + Session["Cod_destino"] + "";
+        SqlCommand cmd = new SqlCommand(Select, myConnection);
+        SqlDataReader reader = cmd.ExecuteReader();
+
+        <div class="menu_p">    
+            <ul>
+                <li class="usuario">usuario: @Session["User"]</li>
+                <li class="rig"><a href="~/App_Views/exit/exit.cshtml">cerrar sesion</a></li>
+                <li class="rig"><a href="~/App_Views/index.cshtml">inicio</a></li>
+            </ul>
+        </div>
+
+        <div class="caja-tabla">
+
+        <input required='' type='text' id="myInput" onkeyup="myFunction()">
+        <label alt='Placeholder' placeholder='Adaptive Placeholder'></label>
+
+
+        <label class="custom-select">
+            <select id="selccionar">
+                <option value="" disabled selected>selecione el metodo de filtrado</option>
+                <option value="0">fecha de ingreso</option>
+                <option value="1">cod_destino</option>
+                <option value="2">contacto</option>
+                <option value="3">cod_predio</option>
+                <option value="4">remitente</option>
+                <option value="5">fecha de entrega</option>
+                <option value="6">fecha aded</option>
+            </select>
+        </label>
+    
+
+        <table class="con-table" id="myTable">
+        <tr>
+            <th>fecha de ingreso</th>
+            <th>cod_destino</th>
+            <th>contacto</th>
+            <th>cod_predio</th>
+            <th>remitente</th>
+            <th>fecha de entrega</th>
+            <th>fecha aded</th>
+        </tr>
+
+        @while (reader.Read())
+        {
+            <tr>
+                <td>@reader.GetSqlDateTime(1)</td>
+                <td>@reader.GetSqlString(2)</td>
+                <td>@reader.GetSqlString(3)</td>
+                <td>@reader.GetSqlString(4)</td>
+                <td>@reader.GetSqlString(5)</td>
+                <td>@reader.GetSqlDateTime(14)</td>
+                <td>@reader.GetSqlDateTime(17)</td>
+            </tr>
+        }
+        </table>
+        </div>
+    }
+    catch
+    {
+       <div>fallo query</div>
+    }
+
+}

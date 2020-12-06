@@ -1,0 +1,43 @@
+﻿* {
+    font-family: 'Roboto', sans-serif;
+}
+
+.menu_p {
+    background-color: black;
+    height: 40px;
+}
+
+.menu_p ul {
+    height: 100%;
+}
+
+.menu_p ul .rig {
+    float: right;
+}
+
+.menu_p ul .rig:hover {
+    color: white;
+    border-bottom: 1px solid #03A9F4;
+}
+
+.menu_p ul li {
+    margin-right: 20px;
+    top: 30%;
+    position: relative;
+    display: inline-block;
+}
+
+.menu_p ul li a {
+    color: white;
+}
+
+.usuario {
+    text-decoration: none;
+    color: white;
+    margin-left: 10px;
+}
+
+.usuario:hover {
+    color: #2980b9;
+}
+
